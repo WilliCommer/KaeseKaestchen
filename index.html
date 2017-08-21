@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<!--
+  Kaesekaestchen HTML Application 
+  Version 1.0
+  (c) 2017 by Willi Commer (WCS)
+-->
+
+<html>
+  <head>
+    <title>Käsekästchen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/kk.ico">
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="js/kaesekaestchen.js" type="text/javascript"></script>
+    <script src="js/textdef.js" type="text/javascript"></script>
+    <script src="js/angular.min.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+  </head>
+  
+  <body ng-app="myApp"  ng-controller="myCtrl">
+
+    <header>
+      <h1>{{getText("appName")}}</h1>
+      <h2>{{getText("version")}} {{getText("copyRight")}}</h2>
+    </header>    
+    
+    <nav>
+      <ul>
+        <li>
+          <table>
+            <tr>
+              <th>{{getText("labelUser")}}</th>
+              <th>{{getText("labelComputer")}}</th>
+            </tr>
+            <tr>
+              <td>{{getScore().u}}</td>
+              <td>{{getScore().c}}</td>
+            </tr>
+          </table>
+        </li>
+        <li></li>
+        <li ng-hide="isHiddenEl('btnNewGame')"><a href="#" ng-click="newGame()">{{getText("btnNewGame")}}</a></li>
+        <li ng-hide="isHiddenEl('btnNewGameC')"><a href="#" ng-click="newGameC()">{{getText("btnNewGameC")}}</a></li>
+        <li ng-hide="isHiddenEl('btnAuto')"><a href="#" ng-click="autoPlay()">{{getText("btnAuto")}}</a></li>
+        <li ng-hide="checkUndo()"><a href="#" ng-click="undoMove()">{{getText("btnUndo")}}</a></li>
+        <li>
+          <form id="boardSizeForm">
+            <p class="labelText">{{getText("lbBoardSize")}}</p>
+            <fieldset>
+              <input type="radio" id="boardSize4" ng-model="boardSize" ng-change="newGame()" value="4"/>
+              <label for="boardSize4"> 4 x 4</label>
+              <input type="radio" id="boardSize6" ng-model="boardSize" ng-change="newGame()" value="6"/>
+              <label for="boardSize6"> 6 x 6</label>
+              <br/>
+              <input type="radio" id="boardSize8" ng-model="boardSize" ng-change="newGame()" value="8"/>
+              <label for="boardSize8"> 8 x 8</label>
+              <input type="radio" id="boardSize10" ng-model="boardSize" ng-change="newGame()" value="10" ng-hide="isHiddenEl('boardSize10')"/>
+              <label for="boardSize10" ng-hide="isHiddenEl('boardSize10')"> 10 x 10</label>
+              <br ng-hide="isHiddenEl('boardSize15')"/>
+              <input type="radio" id="boardSize15" ng-model="boardSize" ng-change="newGame()" value="15" ng-hide="isHiddenEl('boardSize15')"/>
+              <label for="boardSize15" ng-hide="isHiddenEl('boardSize15')"> 15 x 15</label>
+            </fieldset>
+
+	  </form>
+        </li>
+        <li ng-hide="isHiddenEl('skillForm')">
+          <form id="skillForm">
+            <p class="labelText">{{getText("lbSkill")}}</p>
+            <fieldset>
+              <input type="radio" id="skill0" ng-model="playLevel" value="0"/>
+              <label for="skill0"> {{getText("lbSkillDummy")}}</label>
+              <br ng-hide="isHiddenEl('skillFormBr')"/>
+              <input type="radio" id="skill1" ng-model="playLevel" value="1"/>
+              <label for="skill1"> {{getText("lbSkillNormal")}}</label>
+              <br ng-hide="isHiddenEl('skillFormBr')"/>
+              <input type="radio" id="skill2" ng-model="playLevel" value="2"/>
+              <label for="skill2"> {{getText("lbSkillGood")}}</label>
+            </fieldset>
+	  </form>
+        </li>
+        <li ng-hide="isHiddenEl('languageForm')">
+          <form id="languageForm">
+            <p class="labelText">{{getText("lbLanguage")}}</p>
+            <fieldset>
+              <input type="radio" id="language_en" ng-model="language" value="en"/>
+              <label for="language_en"> {{getText("lbLanguage_en")}}</label>
+              <input type="radio" id="language_de" ng-model="language" value="de"/>
+              <label for="language_de"> {{getText("lbLanguage_de")}}</label>
+            </fieldset>
+	  </form>
+        </li>
+      </ul>
+    </nav>
+     
+    <main>
+      <div class="crop_container" style="width:{{boardWidth()}}px; height:{{boardWidth()}}px;">
+        <div class="crop" ng-repeat="f in game.getFields()" style="{{fieldPosStyle(f)}}">
+          <img ng-src="{{getFieldImageUrl(f)}}" style="{{fieldImageStyle(f)}}">              
+          <div class="crop-line crop-top-line" style="{{fieldBorderStyleTop(f)}}" ng-click="cropLineClick(f, CROP_LINE_TOP)"></div>
+          <div class="crop-line crop-right-line" style="{{fieldBorderStyleRight(f)}}" ng-click="cropLineClick(f, CROP_LINE_RIGHT)"></div>
+          <div class="crop-line crop-bottom-line" style="{{fieldBorderStyleBottom(f)}}" ng-click="cropLineClick(f, CROP_LINE_BOTTOM)"></div>
+          <div class="crop-line crop-left-line" style="{{fieldBorderStyleLeft(f)}}" ng-click="cropLineClick(f, CROP_LINE_LEFT)"></div>
+        </div>
+      </div>            
+    </main>
+    
+    
+  </body>
+</html>

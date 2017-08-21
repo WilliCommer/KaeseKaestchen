@@ -1,0 +1,195 @@
+html {
+  box-sizing: border-box;
+}
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+ 
+body {
+  margin: 10px auto;
+  max-width: 60em;
+  font-family: sans-serif;
+  color: #333333;
+}
+ 
+table {
+  width: 100%;
+}
+
+td, th {
+  text-align: left;
+  width: 50%;
+}
+
+header, nav, nav a, main, article, section, aside, footer, fieldset {
+  border-radius: 0.5em;
+  border: 1px solid;
+  padding: 10px;
+  margin: 10px;
+}
+ 
+header {
+  background: #F1F3F4;
+  border-color: #d5d5d5;
+  }
+  
+header img {
+  width: 13em;
+  margin-right: 50px;
+  float: left;
+}
+
+header h1 {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 2px;
+}
+
+header h2 {
+  font-size: 0.6em;
+  text-align: right;
+  margin: 2px;
+}
+ 
+nav {
+  font-size: 0.91em;
+  background: #fffbf0;
+  border-color: #e7c157;
+  padding: 0;
+}
+
+nav ul {
+  padding:0;
+}
+ 
+nav li {
+  list-style: none;
+  margin: 0;
+  padding: 0.5em;
+}
+ 
+nav a {
+  display: block;
+  padding: 0.2em 10px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #e7c157;
+  color: #333;
+}
+ 
+nav ul a:hover,
+nav ul a:active  {
+  color: #fffbf0;
+  background-color: #dfac20;;
+}
+
+main {
+  display: block;
+  background: #fffbf0;
+  border-color: #e7c157;
+  min-width: 16em; 
+  margin-top: 20px;
+}
+ 
+section {
+  background: #F1F3F4;
+  border-color: slateblue;
+}
+ 
+article {
+  background: #ffede0;
+  border-color: #df6c20;
+}
+ 
+aside {
+  background: #ebf5d7;
+  border-color: #8db243;
+}
+ 
+footer {
+  background: #e4ebf2;
+  border-color: #8a9da8;
+}
+ 
+footer p {
+  float: right;
+  margin: 0;
+}
+
+fieldset {
+  margin: 0px;
+  padding: 5px;
+}
+ 
+@media (min-width: 32em)  {	/* mehrspaltiges Layout für breitere Viewports */ 
+  nav {
+    float: left;
+    width: 15em;
+  }
+  main {
+    margin-left: 15em;
+  }	
+}
+
+
+.labelText {
+  font-weight: bold;
+}
+
+
+.crop_container {
+  position: relative;
+}
+.crop {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 100px;
+  height: 100px;
+  transition: all 0.25s;
+/*  cursor: move; */
+}
+
+.crop .crop-line {
+  position: absolute;
+  transition: all 0.25s;
+}
+.crop:hover .crop-line {
+  border-color: rgba(123,53,132,1);
+}
+.crop .crop-top-line {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  border-top: 1px solid rgba(204,31,48,1);
+  cursor: n-resize;
+}
+.crop .crop-bottom-line {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  border-bottom: 1px solid rgba(204,31,48,1);
+  cursor: s-resize;
+}
+.crop .crop-left-line {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 10px;
+  border-left: 1px solid rgba(204,31,48,1);
+  cursor: w-resize;
+}
+.crop .crop-right-line {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  border-right: 1px solid rgba(204,31,48,1);
+  cursor: e-resize;
+}
+
+.crop:hover {
+  opacity: 1;
+}
