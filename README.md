@@ -1,7 +1,7 @@
-# K‰sek‰stchen
+# K√§sek√§stchen
 
 
-K‰sek‰stchen is the german version of the game "Dots and Boxes".
+K√§sek√§stchen is the german version of the game "Dots and Boxes".
 This implementation is written in JavaScript, HTML and CSS. It uses the framework AngularJS.
 Open "index.html" in a browser to play the game.
 
@@ -14,7 +14,7 @@ Open "index.html" in a browser to play the game.
 * Support for multiple languages
 
 ## Screenshot
-![Screenshot](http://willicommer.de/kaesekaestchen/ScreenShot.png)
+![Screenshot](http://familiecommer.de/kaesekaestchen/ScreenShot.png)
 
 ## Files
 
@@ -29,9 +29,9 @@ Open "index.html" in a browser to play the game.
 ## Links
 
 * [Source on GitHub](http://github.com/WilliCommer/KaeseKaestchen/) 
-* [Demo Version](http://willicommer.de/kaesekaestchen)
-* [Screenshot](http://willicommer.de/kaesekaestchen/ScreenShot.png)
-* [K‰sek‰stchen Wikipedia](https://de.wikipedia.org/wiki/K%C3%A4sek%C3%A4stchen)
+* [Demo Version](http://familiecommer.de/kaesekaestchen)
+* [Screenshot](http://familiecommer.de/kaesekaestchen/ScreenShot.png)
+* [K√§sek√§stchen Wikipedia](https://de.wikipedia.org/wiki/K%C3%A4sek%C3%A4stchen)
 * [Dots and Boxes Wikipedia](https://en.wikipedia.org/wiki/Dots_and_Boxes)
 
 
